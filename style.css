@@ -263,16 +263,20 @@ p{
 }
 
 .hero-visual{
-    position: relative;
-    width: 100%;
-    max-width: 550px;
-    margin: 20px auto -120px;
-    z-index: 10;
+
+    position:relative;
+
+    width:100%;
+
+    max-width:550px;
+
+    margin:20px auto -80px;
+
 }
 
 .hero-img{
     width:100%;
-    max-width:650px;
+    max-width:500px;
     height:auto;
     display:block;
     margin:auto;
@@ -449,11 +453,11 @@ p{
 }
 
 .hero-visual{
-    margin:15px auto -120px;
+    margin:15px auto -180px;
 }
 
 .hero-img{
-    max-width:450px;
+    max-width:400px;
 }
 
 }
