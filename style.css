@@ -265,13 +265,9 @@ p{
 .hero-visual{
     position: relative;
     width: 100%;
-    max-width: 700px;
-    margin: 40px auto 0;
-    right: 0;
-    top: 0;
-    transform: none;
+    max-width: 550px;
+    margin: 20px auto -120px;
     z-index: 10;
-    pointer-events: none;
 }
 
 .hero-img{
@@ -448,6 +444,17 @@ p{
         max-width:100%;
 
     }
+    .hero{
+    padding:90px 0 0;
+}
+
+.hero-visual{
+    margin:15px auto -120px;
+}
+
+.hero-img{
+    max-width:450px;
+}
 
 }
 /* LOGO NAVBAR */
