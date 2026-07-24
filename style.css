@@ -260,10 +260,10 @@ p{
 
 .hero-img{
     width:100%;
-    max-width:500px;
+    max-width:320px;
     height:auto;
     display:block;
-    margin:auto;
+    margin:20px auto 0;
 }
 
 .hero::before{
@@ -436,7 +436,7 @@ p{
 }
 
 .hero-img{
-    max-width:400px;
+    max-width:280px;
 }
 
 }
