@@ -275,9 +275,11 @@ p{
 }
 
 .hero-img{
-    display: block;
-    width: 100%;
-    height: auto;
+    width:100%;
+    max-width:650px;
+    height:auto;
+    display:block;
+    margin:auto;
 }
 
 .hero::before{
