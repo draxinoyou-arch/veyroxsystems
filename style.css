@@ -262,18 +262,6 @@ p{
 
 }
 
-.hero-visual{
-
-    position:relative;
-
-    width:100%;
-
-    max-width:550px;
-
-    margin:20px auto -80px;
-
-}
-
 .hero-img{
     width:100%;
     max-width:500px;
@@ -354,14 +342,10 @@ p{
 @media (max-width:991px){
 
     .hero{
-
-        min-height:auto;
-
-        padding:120px 0 70px;
-
-        text-align:center;
-
-    }
+    min-height:auto;
+    padding:90px 0 20px;
+    text-align:center;
+}
 
     .hero-content{
 
