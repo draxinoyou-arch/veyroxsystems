@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard | VEYROX Systems</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet" href="dashboard.css">
+
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <!-- ========================= -->
+    <!-- SIDEBAR -->
+    <!-- ========================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <h2>VEYROX</h2>
+
+            <span>Systems</span>
+
+        </div>
+
+        <ul>
+
+            <li class="active" data-section="dashboard">
+
+                <i class="fa-solid fa-house"></i>
+
+                Dashboard
+
+            </li>
+
+            <li data-section="clientes">
+
+                <i class="fa-solid fa-users"></i>
+
+                Clientes
+
+            </li>
+
+            <li data-section="cotizaciones">
+
+                <i class="fa-solid fa-file-invoice-dollar"></i>
+
+                Cotizaciones
+
+            </li>
+
+            <li data-section="servicios">
+
+                <i class="fa-solid fa-briefcase"></i>
+
+                Servicios
+
+            </li>
+
+            <li data-section="portafolio">
+
+                <i class="fa-solid fa-image"></i>
+
+                Portafolio
+
+            </li>
+
+            <li data-section="mensajes">
+
+                <i class="fa-solid fa-envelope"></i>
+
+                Mensajes
+
+            </li>
+
+            <li data-section="configuracion">
+
+                <i class="fa-solid fa-gear"></i>
+
+                Configuración
+
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- ========================= -->
+    <!-- CONTENIDO -->
+    <!-- ========================= -->
+
+    <main class="content">
+
+        <header class="topbar">
+
+            <button id="menuBtn">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+            <div class="usuario">
+
+                <span>
+
+                    <i class="fa-solid fa-user-shield"></i>
+
+                    Administrador
+
+                </span>
+
+                <button class="btn btn-success ms-3" id="logout">
+
+                    Salir
+
+                </button>
+
+            </div>
+
+        </header>
+
+        <!-- ========================= -->
+        <!-- DASHBOARD -->
+        <!-- ========================= -->
+
+        <section id="dashboardSection">
+
+            <div class="d-flex justify-content-between align-items-center mb-4">
+
+                <div>
+
+                    <h2>Dashboard</h2>
+
+                    <p class="text-secondary">
+
+                        Bienvenido al panel de VEYROX Systems
+
+                    </p>
+
+                </div>
+
+                <button class="btn btn-success" id="nuevoServicio">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Nuevo Servicio
+
+                </button>
+
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-xl-3 col-md-6">
+
+                    <div class="card-box">
+
+                        <i class="fa-solid fa-users"></i>
+
+                        <h3 id="clientesTotal">0</h3>
+
+                        <p>Clientes</p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-xl-3 col-md-6">
+
+                    <div class="card-box">
+
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+
+                        <h3 id="cotizacionesTotal">0</h3>
+
+                        <p>Cotizaciones</p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-xl-3 col-md-6">
+
+                    <div class="card-box">
+
+                        <i class="fa-solid fa-briefcase"></i>
+
+                        <h3 id="serviciosTotal">0</h3>
+
+                        <p>Servicios</p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-xl-3 col-md-6">
+
+                    <div class="card-box">
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                        <h3 id="mensajesTotal">0</h3>
+
+                        <p>Mensajes</p>
+
+                    </div>
+
+                </div>
+                </div>
+
+            <!-- Tabla de servicios -->
+
+            <div class="card-box mt-4">
+
+                <div class="d-flex justify-content-between align-items-center mb-3">
+
+                    <h4>Servicios registrados</h4>
+
+                </div>
+
+                <div class="table-responsive">
+
+                    <table class="table table-dark table-hover align-middle">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Imagen</th>
+                                <th>Servicio</th>
+                                <th>Precio</th>
+                                <th>Acciones</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="tablaServicios">
+
+                            <tr>
+
+                                <td colspan="4" class="text-center">
+
+                                    No hay servicios registrados.
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ========================= -->
+        <!-- CLIENTES -->
+        <!-- ========================= -->
+
+        <section id="clientesSection" class="d-none">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h2>Clientes</h2>
+
+        <button class="btn btn-success" id="nuevoCliente">
+            <i class="fa-solid fa-user-plus"></i>
+            Nuevo Cliente
+        </button>
+
+    </div>
+
+    <div class="card-box">
+
+        <div class="table-responsive">
+
+            <table class="table table-dark table-hover">
+
+                <thead>
+
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Empresa</th>
+                        <th>Teléfono</th>
+                        <th>Correo</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="tablaClientes">
+
+                    <tr>
+                        <td colspan="6" class="text-center">
+                            Cargando...
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+        <!-- ========================= -->
+        <!-- COTIZACIONES -->
+        <!-- ========================= -->
+         <section id="cotizacionesSection" class="d-none">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h2>Cotizaciones</h2>
+
+        <button class="btn btn-primary" id="nuevaCotizacion">
+            <i class="fa-solid fa-file-invoice-dollar"></i>
+            Nueva Cotización
+        </button>
+
+    </div>
+
+    <div class="card-box">
+
+        <div class="table-responsive">
+
+            <table class="table table-dark table-hover">
+
+                <thead>
+
+                    <tr>
+    <th>N°</th>
+    <th>Cliente</th>
+    <th>Servicio</th>
+    <th>Total</th>
+    <th>Estado</th>
+    <th>Fecha</th>
+    <th>Acciones</th>
+</tr>
+
+                </thead>
+
+                <tbody id="tablaCotizaciones">
+
+                    <tr>
+                        <td colspan="6" class="text-center">
+                            No hay cotizaciones registradas.
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+        <!-- ========================= -->
+        <!-- SERVICIOS -->
+        <!-- ========================= -->
+
+        <section id="serviciosSection" class="d-none">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h2>Servicios</h2>
+
+        <button class="btn btn-success" id="nuevoServicio2">
+            <i class="fa-solid fa-plus"></i>
+            Nuevo Servicio
+        </button>
+
+    </div>
+
+    <div class="card-box">
+
+        <div class="table-responsive">
+
+            <table class="table table-dark table-hover align-middle">
+
+                <thead>
+
+                    <tr>
+                        <th>Imagen</th>
+                        <th>Servicio</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="tablaServicios2">
+
+                    <tr>
+                        <td colspan="4" class="text-center">
+                            Cargando servicios...
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+        <!-- ========================= -->
+        <!-- PORTAFOLIO -->
+        <!-- ========================= -->
+
+        <section id="portafolioSection" class="d-none">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h2>Portafolio</h2>
+
+        <button class="btn btn-success" id="nuevoProyecto">
+
+            <i class="fa-solid fa-plus"></i>
+
+            Nuevo Proyecto
+
+        </button>
+
+    </div>
+
+    <div class="card-box">
+
+        <div class="table-responsive">
+
+            <table class="table table-dark table-hover align-middle">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Imagen</th>
+                        <th>Proyecto</th>
+                        <th>Categoría</th>
+                        <th>Acciones</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="tablaPortafolio">
+
+                    <tr>
+
+                        <td colspan="4" class="text-center">
+
+                            No hay proyectos registrados.
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+        <!-- ========================= -->
+        <!-- MENSAJES -->
+        <!-- ========================= -->
+
+        <section id="mensajesSection" class="d-none">
+
+            <h2>Mensajes</h2>
+
+            <div class="card-box mt-4">
+
+                <p>Aquí aparecerán los mensajes enviados desde la web.</p>
+
+            </div>
+
+        </section>
+
+        <!-- ========================= -->
+        <!-- CONFIGURACIÓN -->
+        <!-- ========================= -->
+
+        <section id="configuracionSection" class="d-none">
+
+            <h2>Configuración</h2>
+
+            <div class="card-box mt-4">
+
+                <p>Configuración general del sistema.</p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+<!-- ========================= -->
+<!-- MODAL SERVICIO -->
+<!-- ========================= -->
+
+<div class="modal fade" id="modalServicio" tabindex="-1">
+
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content bg-dark text-white border-success">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+
+                    <i class="fa-solid fa-briefcase"></i>
+
+                    Nuevo Servicio
+
+                </h5>
+
+                <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+
+                        Nombre del servicio
+
+                    </label>
+
+                    <input
+                        id="nombreServicio"
+                        type="text"
+                        class="form-control"
+                        placeholder="Ej. Desarrollo Web">
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+
+                        Precio
+
+                    </label>
+
+                    <input
+                        id="precioServicio"
+                        type="number"
+                        class="form-control"
+                        placeholder="0.00">
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+
+                        Descripción
+
+                    </label>
+
+                    <textarea
+                        id="descripcionServicio"
+                        class="form-control"
+                        rows="5"
+                        placeholder="Describe el servicio"></textarea>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+
+                        Imagen
+
+                    </label>
+
+                    <input
+                        id="imagenServicio"
+                        type="file"
+                        class="form-control"
+                        accept="image/*">
+
+                </div>
+   
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal">
+
+                    Cancelar
+
+                </button>
+
+                <button
+                    class="btn btn-success"
+                    id="guardarServicio">
+
+                    <i class="fa-solid fa-floppy-disk"></i>
+
+                    Guardar Servicio
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ========================= -->
+<!-- MODAL PORTAFOLIO -->
+<!-- ========================= -->
+
+<div class="modal fade" id="modalPortafolio" tabindex="-1">
+
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content bg-dark text-white border-success">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+                    <i class="fa-solid fa-image"></i>
+                    Nuevo Proyecto
+                </h5>
+
+                <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <div class="mb-3">
+
+                    <label>Nombre del proyecto</label>
+
+                    <input
+                        id="nombreProyecto"
+                        type="text"
+                        class="form-control">
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label>Categoría</label>
+
+                    <input
+                        id="categoriaProyecto"
+                        type="text"
+                        class="form-control"
+                        placeholder="Ej. Tienda Virtual">
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label>Descripción</label>
+
+                    <textarea
+                        id="descripcionProyecto"
+                        class="form-control"
+                        rows="4"></textarea>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label>Enlace del proyecto</label>
+
+                    <input
+                        id="linkProyecto"
+                        type="url"
+                        class="form-control"
+                        placeholder="https://">
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label>Imagen</label>
+
+                    <input
+                        id="imagenProyecto"
+                        type="file"
+                        class="form-control"
+                        accept="image/*">
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal">
+
+                    Cancelar
+
+                </button>
+
+                <button
+                    class="btn btn-success"
+                    id="guardarProyecto">
+
+                    Guardar Proyecto
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ========================= -->
+<!-- MODAL CLIENTE -->
+<!-- ========================= -->
+
+<div class="modal fade" id="modalCliente" tabindex="-1">
+
+    <div class="modal-dialog">
+
+        <div class="modal-content bg-dark text-white border-success">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+                    Nuevo Cliente
+                </h5>
+
+                <button
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <div class="mb-3">
+                    <label>Nombre</label>
+                    <input
+                        type="text"
+                        id="clienteNombre"
+                        class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label>Empresa</label>
+                    <input
+                        type="text"
+                        id="clienteEmpresa"
+                        class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label>Teléfono</label>
+                    <input
+                        type="text"
+                        id="clienteTelefono"
+                        class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label>Correo</label>
+                    <input
+                        type="email"
+                        id="clienteCorreo"
+                        class="form-control">
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal">
+
+                    Cancelar
+
+                </button>
+
+                <button
+                    id="guardarCliente"
+                    class="btn btn-success">
+
+                    Guardar
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<div class="modal fade" id="modalCotizacion" tabindex="-1">
+
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content bg-dark text-white">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+                    Nueva Cotización
+                </h5>
+
+                <button class="btn-close btn-close-white"
+                        data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <div class="mb-3">
+
+                    <label>Cliente</label>
+
+                    <select class="form-select"
+                            id="cotizacionCliente">
+
+                        <option value="">
+                            Cargando clientes...
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label>Servicio</label>
+
+                    <select class="form-select"
+                            id="cotizacionServicio">
+
+                        <option value="">
+                            Cargando servicios...
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label>Total (S/)</label>
+
+                    <input
+                        id="cotizacionTotal"
+                        class="form-control"
+                        readonly>
+
+                </div>
+                <div class="mb-3">
+
+    <label>Estado</label>
+
+    <select
+        id="cotizacionEstado"
+        class="form-select">
+
+        <option value="Pendiente">Pendiente</option>
+        <option value="Aprobada">Aprobada</option>
+        <option value="Rechazada">Rechazada</option>
+
+    </select>
+
+</div>
+
+            </div>
+
+            <div class="modal-footer">
+
+               <button
+    type="button"
+    class="btn btn-success"
+    id="guardarCotizacion">
+
+    Guardar Cotización
+
+</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+<script type="module" src="dashboard.js"></script>
+<script type="module" src="clientes.js"></script>
+<script type="module" src="cotizaciones.js"></script>
+
+</body>
+
+</html>

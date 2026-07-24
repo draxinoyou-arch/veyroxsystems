@@ -1,0 +1,148 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins,sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:url("img/login-bg.png") center center/cover no-repeat;
+    overflow:hidden;
+}
+
+.login-page{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    padding:20px;
+}
+
+.login-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(8,15,32,.72);
+    backdrop-filter:blur(4px);
+}
+
+.login-card{
+    position:relative;
+    z-index:10;
+    width:100%;
+    max-width:470px;
+    padding:45px;
+    border-radius:24px;
+    background:rgba(15,23,42,.60);
+    border:1px solid rgba(40,255,140,.25);
+    backdrop-filter:blur(18px);
+    box-shadow:0 25px 60px rgba(0,0,0,.45);
+    animation:fadeUp .7s ease;
+}
+
+.logo-area{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.logo-area h1{
+    color:#2dd36f;
+    font-size:3rem;
+    font-weight:700;
+    margin-bottom:0;
+}
+
+.logo-area span{
+    color:#fff;
+    font-size:1.5rem;
+    letter-spacing:4px;
+}
+
+.logo-area p{
+    color:#9fb2c9;
+    margin-top:10px;
+}
+
+.input-group-text{
+    background:#172036;
+    color:#2dd36f;
+    border:none;
+}
+
+.form-control{
+    background:#172036;
+    border:none;
+    color:#fff;
+    height:55px;
+}
+
+.form-control::placeholder{
+    color:#9aa7b8;
+}
+
+.form-control:focus{
+    background:#172036;
+    color:#fff;
+    box-shadow:0 0 0 .2rem rgba(45,211,111,.25);
+}
+
+.btn-dark{
+    background:#172036;
+    border:none;
+}
+
+.login-btn{
+    height:55px;
+    font-size:1.05rem;
+    font-weight:600;
+    border-radius:12px;
+    transition:.3s;
+}
+
+.login-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 0 25px rgba(45,211,111,.45);
+}
+
+.form-check-label,
+a{
+    color:#d6dce6;
+    font-size:.9rem;
+    text-decoration:none;
+}
+
+a:hover{
+    color:#2dd36f;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(35px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@media(max-width:576px){
+
+.login-card{
+    padding:30px 20px;
+}
+
+.logo-area h1{
+    font-size:2.3rem;
+}
+
+.logo-area span{
+    font-size:1.2rem;
+}
+
+}

@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VEYROX Systems</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+     <link rel="icon" href="assets/logos/favicon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-success sticky-top">
+        <div class="container">
+
+  <a class="navbar-brand" href="#">
+    <img
+        src="assets/logos/logo-white.png"
+        alt="VEYROX Systems"
+        class="logo-navbar">
+</a>
+
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbar">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbar">
+
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                                      
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Servicios</a>
+                    </li>
+
+                
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contacto</a>
+                    </li>
+
+                    <li class="nav-item ms-lg-3">
+                        <a href="#contacto" class="btn btn-success rounded-pill px-4">
+    Solicitar Cotización
+</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- HERO -->
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <span class="badge bg-success px-3 py-2 mb-3">
+                🚀 Desarrollo Web • Tiendas Virtuales • Sistemas
+            </span>
+
+            <h1 class="display-3 fw-bold mt-3">
+                Transformamos ideas en
+                <span class="text-success">soluciones digitales</span>
+            </h1>
+
+            <p class="lead mt-4">
+                En VEYROX Systems desarrollamos páginas web, tiendas virtuales y sistemas personalizados que ayudan a empresas y emprendedores a crecer con tecnología moderna, segura y rápida.
+            </p>
+
+            <div class="d-flex flex-wrap gap-3 mt-4">
+
+                <a href="#contacto" class="btn btn-success btn-lg rounded-pill px-4">
+                    Solicitar Cotización
+                </a>
+
+                <a href="#servicios" class="btn btn-outline-light btn-lg rounded-pill px-4">
+                    Ver Servicios
+                </a>
+
+            </div>
+
+            <div class="d-flex flex-wrap gap-4 mt-5">
+
+                <span>✅ Diseño Responsive</span>
+
+                <span>⚡ Alto Rendimiento</span>
+
+                <span>🔒 Seguridad</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="hero-visual">
+
+        <img
+            src="assets/img/hero.png"
+            class="hero-img"
+            alt="VEYROX Systems">
+
+    </div>
+
+</section>
+<!-- ESTADÍSTICAS -->
+
+<section class="container py-5">
+
+    <div class="row g-4 text-center">
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="card bg-dark border-success h-100">
+
+                <div class="card-body">
+
+                    <h2 class="display-4 fw-bold text-success" id="statClientes">
+                        0
+                    </h2>
+
+                    <p class="mb-0">
+                        Clientes satisfechos
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="card bg-dark border-success h-100">
+
+                <div class="card-body">
+
+                    <h2 class="display-4 fw-bold text-success" id="statProyectos">
+                        0
+                    </h2>
+
+                    <p class="mb-0">
+                        Proyectos realizados
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="card bg-dark border-success h-100">
+
+                <div class="card-body">
+
+                    <h2 class="display-4 fw-bold text-success">
+                        24/7
+                    </h2>
+
+                    <p class="mb-0">
+                        Soporte técnico
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="card bg-dark border-success h-100">
+
+                <div class="card-body">
+
+                    <h2 class="display-4 fw-bold text-success">
+                        100%
+                    </h2>
+
+                    <p class="mb-0">
+                        Responsive
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SERVICIOS -->
+
+<section class="container py-5" id="servicios">
+
+    <div class="text-center mb-5">
+
+        <h2 class="fw-bold text-success">
+            Nuestros Servicios
+        </h2>
+
+        <p class="text-light">
+            Soluciones tecnológicas diseñadas para empresas y emprendedores.
+        </p>
+
+    </div>
+
+    <div class="row g-4" id="listaServicios">
+
+        <!-- Los servicios se cargarán automáticamente desde Firebase -->
+
+    </div>
+    <div class="text-center mt-5">
+
+
+<a href="servicios.html"
+   class="btn btn-outline-success btn-lg rounded-pill px-5">
+
+    Ver todos los servicios
+    <i class="fa-solid fa-arrow-right ms-2"></i>
+
+</a>
+</div>
+
+</section>
+
+<!-- POR QUÉ ELEGIRNOS -->
+
+<section class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <h2 class="fw-bold text-success">
+            ¿Por qué elegir VEYROX Systems?
+        </h2>
+
+        <p class="text-light">
+            Desarrollamos soluciones tecnológicas con calidad profesional.
+        </p>
+
+    </div>
+
+    <div class="row text-center g-4">
+
+        <div class="col-md-3">
+
+            <div class="card bg-dark border-success h-100">
+
+                <div class="card-body">
+
+                    <i class="fa-solid fa-bolt fa-3x text-success mb-3"></i>
+
+                    <h5>Alto Rendimiento</h5>
+
+                    <p>
+                        Sitios rápidos y optimizados para ofrecer la mejor experiencia.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card bg-dark border-success h-100">
+
+                <div class="card-body">
+
+                    <i class="fa-solid fa-mobile-screen-button fa-3x text-success mb-3"></i>
+
+                    <h5>100% Responsive</h5>
+
+                    <p>
+                        Compatible con Android, iPhone, tablets y computadoras.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card bg-dark border-success h-100">
+
+                <div class="card-body">
+
+                    <i class="fa-solid fa-shield-halved fa-3x text-success mb-3"></i>
+
+                    <h5>Seguridad</h5>
+
+                    <p>
+                        Desarrollo con buenas prácticas para proteger tu información.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card bg-dark border-success h-100">
+
+                <div class="card-body">
+
+                    <i class="fa-solid fa-headset fa-3x text-success mb-3"></i>
+
+                    <h5>Soporte</h5>
+
+                    <p>
+                        Acompañamiento antes y después de la entrega del proyecto.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROCESO DE TRABAJO -->
+
+<section class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <h2 class="fw-bold text-success">
+            Nuestro Proceso de Trabajo
+        </h2>
+
+        <p class="text-light">
+            Así desarrollamos cada proyecto de forma organizada y profesional.
+        </p>
+
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="card bg-dark border-success h-100 text-center">
+
+                <div class="card-body">
+
+                    <h1 class="text-success">1</h1>
+
+                    <h5>Cuéntanos tu idea</h5>
+
+                    <p>
+                        Escuchamos tus necesidades y objetivos para el proyecto.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="card bg-dark border-success h-100 text-center">
+
+                <div class="card-body">
+
+                    <h1 class="text-success">2</h1>
+
+                    <h5>Planificación</h5>
+
+                    <p>
+                        Diseñamos la estructura y la mejor solución para tu negocio.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="card bg-dark border-success h-100 text-center">
+
+                <div class="card-body">
+
+                    <h1 class="text-success">3</h1>
+
+                    <h5>Desarrollo</h5>
+
+                    <p>
+                        Construimos el proyecto con tecnologías modernas y seguras.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="card bg-dark border-success h-100 text-center">
+
+                <div class="card-body">
+
+                    <h1 class="text-success">4</h1>
+
+                    <h5>Entrega y Soporte</h5>
+
+                    <p>
+                        Publicamos tu proyecto y te acompañamos después de la entrega.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- CONTACTO -->
+
+<section id="contacto" class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <h2 class="fw-bold text-success">
+            Contáctanos
+        </h2>
+
+        <p class="text-light">
+            ¿Tienes un proyecto? Escríbenos y con gusto te ayudaremos.
+        </p>
+
+    </div>
+
+    <div class="row g-5">
+
+        <!-- Información -->
+
+        <div class="col-lg-5">
+
+            <div class="card bg-dark border-success h-100">
+
+                <div class="card-body">
+
+                    <h4 class="text-success mb-4">
+                        Información de Contacto
+                    </h4>
+
+                    <p>
+                        <i class="fa-brands fa-whatsapp text-success"></i>
+                        WhatsApp
+                    </p>
+
+                    <p>
+                        <i class="fa-solid fa-envelope text-success"></i>
+                        contacto@veyroxsystems.online
+                    </p>
+
+                    <p>
+                        <i class="fa-solid fa-globe text-success"></i>
+                        www.veyroxsystems.online
+                    </p>
+
+                    <a href="#" class="btn btn-success rounded-pill mt-3">
+                        Escribir por WhatsApp
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Formulario -->
+
+        <div class="col-lg-7">
+
+            <div class="card bg-dark border-success">
+
+                <div class="card-body">
+
+                    <h4 class="text-success mb-4">
+                        Solicitar Cotización
+                    </h4>
+
+                    <form>
+
+                        <div class="mb-3">
+
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="Nombre">
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <input type="email"
+                                   class="form-control"
+                                   placeholder="Correo">
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <select class="form-select">
+
+                                <option>Selecciona un servicio</option>
+
+                                <option>Desarrollo Web</option>
+
+                                <option>Tienda Virtual</option>
+
+                                <option>Sistema Web</option>
+
+                                <option>Diseño Gráfico</option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <textarea class="form-control"
+                                      rows="5"
+                                      placeholder="Cuéntanos tu proyecto"></textarea>
+
+                        </div>
+
+                        <button class="btn btn-success rounded-pill px-4">
+
+                            Enviar Solicitud
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- FOOTER -->
+
+<footer class="bg-dark border-top border-success mt-5">
+
+    <div class="container py-5">
+
+        <div class="row">
+
+            <div class="col-lg-4 mb-4">
+
+                <h3 class="fw-bold">
+
+                    <span class="text-success">VEYROX</span>
+
+                    <span class="text-light">Systems</span>
+
+                </h3>
+
+                <p class="text-light">
+
+                    Creamos soluciones digitales modernas para empresas y emprendedores.
+
+                </p>
+
+            </div>
+
+            <div class="col-lg-2 mb-4">
+
+                <h5 class="text-success">
+                    Empresa
+                </h5>
+
+                <ul class="list-unstyled">
+
+                    <li><a href="#" class="text-light text-decoration-none">Inicio</a></li>
+
+                    <li><a href="#servicios" class="text-light text-decoration-none">Servicios</a></li>
+
+                
+
+                    <li><a href="#contacto" class="text-light text-decoration-none">Contacto</a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="col-lg-3 mb-4">
+
+                <h5 class="text-success">
+                    Servicios
+                </h5>
+
+                <ul class="list-unstyled">
+
+                    <li class="text-light">Desarrollo Web</li>
+
+                    <li class="text-light">Tiendas Virtuales</li>
+
+                    <li class="text-light">Sistemas Web</li>
+
+                    <li class="text-light">Diseño Gráfico</li>
+
+                </ul>
+
+            </div>
+
+            <div class="col-lg-3">
+
+                <h5 class="text-success">
+                    Síguenos
+                </h5>
+
+                <div class="d-flex gap-3 mt-3">
+
+                    <a href="#" class="text-success fs-3">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+
+                    <a href="#" class="text-success fs-3">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+
+                    <a href="#" class="text-success fs-3">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <hr class="border-success">
+
+        <p class="text-center text-light mb-0">
+
+            © 2026 VEYROX Systems | Todos los derechos reservados.
+
+        </p>
+
+    </div>
+
+    <!-- TECNOLOGÍAS -->
+<section class="py-5 bg-black text-light">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="badge bg-success px-3 py-2">
+                Tecnologías
+            </span>
+
+            <h2 class="display-5 fw-bold mt-3">
+                Trabajamos con tecnología moderna
+            </h2>
+
+            <p class="text-secondary">
+                Creamos soluciones rápidas, seguras y escalables utilizando herramientas profesionales.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-3">
+                <div class="tech-card text-center p-4">
+                    <i class="fab fa-html5 fa-3x text-danger mb-3"></i>
+                    <h5>HTML5</h5>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="tech-card text-center p-4">
+                    <i class="fab fa-css3-alt fa-3x text-primary mb-3"></i>
+                    <h5>CSS3</h5>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="tech-card text-center p-4">
+                    <i class="fab fa-js-square fa-3x text-warning mb-3"></i>
+                    <h5>JavaScript</h5>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="tech-card text-center p-4">
+                    <i class="fas fa-database fa-3x text-success mb-3"></i>
+                    <h5>Firebase</h5>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</footer>
+<!-- BOTÓN FLOTANTE WHATSAPP -->
+
+<a href="https://wa.me/51999999999"
+   class="whatsapp-float"
+   target="_blank">
+
+    <i class="fab fa-whatsapp"></i>
+
+</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="app.js"></script>
+
+</body>
+
+</html>
