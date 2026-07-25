@@ -485,8 +485,9 @@ p{
         url("assets/img/hero.png");
 
     background-repeat:no-repeat;
-    background-position:center 75%;
+    background-position:center 55%;
     background-size:95%;
+    width:100%;
 
 }
 
@@ -585,5 +586,9 @@ body{
 
 .container,
 .container-fluid{
+    overflow-x:hidden;
+}
+html,
+body{
     overflow-x:hidden;
 }
