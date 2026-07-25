@@ -213,11 +213,8 @@ p{
 }
 
 .hero .container{
-
-    position:relative;
-
-    z-index:10;
-
+    padding-left:15px;
+    padding-right:15px;
 }
 
 .hero-content{
