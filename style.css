@@ -260,10 +260,11 @@ p{
 
 .hero-img{
     width:100%;
-    max-width:320px;
+    max-width:650px;
     height:auto;
     display:block;
-    margin:20px auto 0;
+    margin:auto;
+    animation:floatHero 7s ease-in-out infinite;
 }
 
 .hero::before{
@@ -427,16 +428,12 @@ p{
         max-width:100%;
 
     }
-    .hero{
-    padding:80px 0 20px;
-}
-
-.hero-visual{
-    margin:15px auto -180px;
+.hero{
+    padding:90px 0 40px;
 }
 
 .hero-img{
-    max-width:280px;
+    max-width:500px;
 }
 
 }
