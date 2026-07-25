@@ -29,7 +29,7 @@ servicios.forEach(doc => {
 
         <div class="col-lg-4 col-md-6">
 
-            <div class="card bg-dark border-success h-100 shadow">
+            <div class="card servicio-card bg-dark h-100 shadow">
 
                 <div class="servicio-icono">
     <i class="fas fa-code"></i>

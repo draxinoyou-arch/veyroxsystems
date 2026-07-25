@@ -538,35 +538,61 @@ background-position:center;
 
     border-radius:22px;
 
-    transition:.35s;
+    position:relative;
 
     overflow:hidden;
+
+    cursor:pointer;
+
+    transition:.45s ease;
+
+}
+
+.servicio-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:50%;
+
+    height:100%;
+
+    background:linear-gradient(
+
+        120deg,
+
+        transparent,
+
+        rgba(255,255,255,.20),
+
+        transparent
+
+    );
+
+    transition:.8s;
 
 }
 
 .servicio-card:hover{
 
-    transform:translateY(-8px);
+    transform:translateY(-12px);
 
     border-color:#22c55e;
 
-    box-shadow:0 20px 50px rgba(34,197,94,.20);
+    box-shadow:
+
+        0 18px 50px rgba(34,197,94,.25);
 
 }
 
-.servicio-card h4{
+.servicio-card:hover::before{
 
-    color:#fff;
-
-    font-weight:700;
-
-}
-
-.precio{
-
-    color:#22c55e;
-
-    font-weight:700;
+    left:150%;
 
 }
 
@@ -590,6 +616,35 @@ background-position:center;
 
     color:white;
 
+    transition:.45s;
+
+}
+
+.servicio-card:hover .servicio-icono{
+
+    transform:scale(1.15) rotate(8deg);
+
+    box-shadow:
+
+        0 0 30px rgba(34,197,94,.40);
+
+}
+.servicio-card:hover .servicio-icono{
+
+    transform:scale(1.15) rotate(8deg);
+
+    box-shadow:
+
+        0 0 25px rgba(34,197,94,.35);
+
+}
+
+.servicio-card:hover .servicio-icono{
+
+    transform:scale(1.15) rotate(6deg);
+
+    box-shadow:0 0 30px rgba(34,197,94,.45);
+
 }
 html,
 body{
@@ -604,4 +659,28 @@ body{
 html,
 body{
     overflow-x:hidden;
+}
+@media (max-width:576px){
+
+    .servicio-card{
+
+        margin-bottom:18px;
+
+    }
+
+    .servicio-card:active{
+
+        transform:scale(.98);
+
+    }
+
+}
+@media(max-width:576px){
+
+.servicio-card:active{
+
+    transform:scale(.98);
+
+}
+
 }

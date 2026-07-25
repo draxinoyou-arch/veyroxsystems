@@ -48,14 +48,16 @@
                                       
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Servicios</a>
-                    </li>
+    <a class="nav-link" href="#servicios">
+        Servicios
+    </a>
+</li>
 
-                
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contacto</a>
-                    </li>
+<li class="nav-item">
+    <a class="nav-link" href="#contacto">
+        Contacto
+    </a>
+</li>
 
                     <li class="nav-item ms-lg-3">
                         <a href="#contacto" class="btn btn-success rounded-pill px-4">
@@ -521,27 +523,46 @@
                         Solicitar Cotización
                     </h4>
 
-                    <form>
+                    <form id="formCotizacion">
 
                         <div class="mb-3">
 
-                            <input type="text"
-                                   class="form-control"
-                                   placeholder="Nombre">
+                            <input
+    type="text"
+    id="nombre"
+    class="form-control"
+    placeholder="Nombre"
+    required>
+    <div class="mb-3">
+
+    <input
+        type="text"
+        id="whatsapp"
+        class="form-control"
+        placeholder="WhatsApp"
+        required>
+
+</div>
 
                         </div>
 
                         <div class="mb-3">
 
-                            <input type="email"
-                                   class="form-control"
-                                   placeholder="Correo">
+                            <input
+    type="email"
+    id="correo"
+    class="form-control"
+    placeholder="Correo"
+    required>
 
                         </div>
 
                         <div class="mb-3">
 
-                            <select class="form-select">
+                            <select
+    id="servicio"
+    class="form-select"
+    required>
 
                                 <option>Selecciona un servicio</option>
 
@@ -559,13 +580,18 @@
 
                         <div class="mb-3">
 
-                            <textarea class="form-control"
-                                      rows="5"
-                                      placeholder="Cuéntanos tu proyecto"></textarea>
+                            <textarea
+    id="proyecto"
+    class="form-control"
+    rows="5"
+    placeholder="Cuéntanos tu proyecto"
+    required></textarea>
 
                         </div>
 
-                        <button class="btn btn-success rounded-pill px-4">
+                        <button
+    type="submit"
+    class="btn btn-success rounded-pill px-4">
 
                             Enviar Solicitud
 
@@ -752,9 +778,10 @@
 
 </a>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+<script type="module" src="app.js"></script>
+<script type="module" src="cotizacion-web.js"></script>
 
 </body>
-
 </html>
