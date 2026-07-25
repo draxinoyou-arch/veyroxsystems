@@ -470,9 +470,9 @@ p{
     }
     .hero .container{
 
-    padding-left:15px;
+    padding-left:20px;
 
-    padding-right:15px;
+    padding-right:20px;
 
 }
 .hero{
@@ -487,7 +487,7 @@ p{
     background-position:center 55%;
     background-size:95%;
     width:100%;
-    margin-right:-6px;
+    margin-right:-4px;
 
 }
 
