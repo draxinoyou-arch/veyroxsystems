@@ -443,11 +443,7 @@ p{
 
 @media (max-width:576px){
 
-    .hero{
-
-        padding:110px 0 50px;
-
-    }
+    
 
     .hero h1{
 
@@ -481,15 +477,17 @@ p{
 
     }
 .hero{
-    padding:90px 0 40px;
+
+    padding:30px 0 40px;
 
     background:
-        linear-gradient(rgba(5,8,22,.88), rgba(5,8,22,.94)),
+        linear-gradient(rgba(5,8,22,.55), rgba(5,8,22,.70)),
         url("assets/img/hero.png");
 
     background-repeat:no-repeat;
-    background-position:center bottom;
+    background-position:center 75%;
     background-size:95%;
+
 }
 
 }
@@ -578,4 +576,14 @@ p{
 
     color:white;
 
+}
+html,
+body{
+    overflow-x:hidden;
+    width:100%;
+}
+
+.container,
+.container-fluid{
+    overflow-x:hidden;
 }
