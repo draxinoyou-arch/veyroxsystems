@@ -238,16 +238,7 @@
         <!-- Los servicios se cargarán automáticamente desde Firebase -->
 
     </div>
-    <div class="text-center mt-5">
-
-
-<a href="servicios.html"
-   class="btn btn-outline-success btn-lg rounded-pill px-5">
-
-    Ver todos los servicios
-    <i class="fa-solid fa-arrow-right ms-2"></i>
-
-</a>
+    
 </div>
 
 </section>
@@ -533,6 +524,8 @@
     class="form-control"
     placeholder="Nombre"
     required>
+    </div>
+    
     <div class="mb-3">
 
     <input
@@ -543,8 +536,6 @@
         required>
 
 </div>
-
-                        </div>
 
                         <div class="mb-3">
 
@@ -782,6 +773,67 @@
 
 <script type="module" src="app.js"></script>
 <script type="module" src="cotizacion-web.js"></script>
+<!-- Modal Servicio -->
+<div class="modal fade" id="modalServicio" tabindex="-1">
+
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+
+        <div class="modal-content bg-dark text-white border-success">
+
+            <div class="modal-header border-success">
+
+                <h3
+                    class="modal-title titulo-modal-servicio"
+                    id="modalTitulo">
+
+                </h3>
+
+                <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <img
+                    id="modalImagen"
+                    class="img-fluid rounded mb-4"
+                    src=""
+                    alt="">
+
+                <p
+                    id="modalDescripcion"
+                    class="descripcion-modal">
+                </p>
+
+                <h2
+                    id="modalPrecio"
+                    class="precio-modal">
+                </h2>
+
+            </div>
+
+            <div class="modal-footer border-success">
+
+                <a
+                    href="#contacto"
+                    class="btn btn-success rounded-pill w-100"
+                    data-bs-dismiss="modal">
+
+                    Solicitar Cotización
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 </body>
 </html>

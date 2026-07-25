@@ -2,7 +2,9 @@ import { db } from "./firebase.js";
 
 import {
     collection,
-    getDocs
+    getDocs,
+    doc,
+    getDoc
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 async function cargarServicios() {
@@ -13,49 +15,57 @@ async function cargarServicios() {
 
     lista.innerHTML = "";
 
-    const consulta = await getDocs(collection(db, "servicios"));
+    const ids = [
+        "desarrollo-web",
+        "tienda-virtual",
+        "sistema-web",
+        "diseno-grafico"
+    ];
 
-    if (consulta.empty) {
-    return;
-}
+    for (const id of ids) {
 
-    const servicios = consulta.docs.slice(0, 3);
+        const documento = await getDoc(doc(db, "servicios", id));
 
-servicios.forEach(doc => {
+        if (!documento.exists()) continue;
 
-        const servicio = doc.data();
+        const servicio = documento.data();
 
         lista.innerHTML += `
 
-        <div class="col-lg-4 col-md-6">
+        <div class="col-lg-6 col-md-6">
 
             <div class="card servicio-card bg-dark h-100 shadow">
 
                 <div class="servicio-icono">
-    <i class="fas fa-code"></i>
-</div>
+                    <i class="fas fa-code"></i>
+                </div>
 
                 <div class="card-body d-flex flex-column">
 
-                    <h4 class="text-success">
-                        ${servicio.nombre}
-                    </h4>
+                    <h4 class="titulo-servicio-web">
+    ${servicio.nombre}
+</h4>
 
-                    <p class="text-light flex-grow-1">
-                        ${servicio.descripcion}
-                    </p>
+<p class="descripcion-servicio">
+    ${servicio.descripcion}
+</p>
 
-                    <h5 class="text-white mb-3">
-                        S/ ${servicio.precio}
-                    </h5>
+<div class="precio-servicio">
+    S/ ${servicio.precio}
+</div>
 
-                    <a
-                        href="#contacto"
-                        class="btn btn-success rounded-pill">
+<button
+    class="btn btn-outline-success rounded-pill mt-3"
+    onclick="verServicio(
+        '${servicio.nombre}',
+        '${servicio.descripcion}',
+        '${servicio.precio}',
+        '${servicio.imagen}'
+    )">
 
-                        Solicitar Cotización
+    Ver más
 
-                    </a>
+</button>
 
                 </div>
 
@@ -65,7 +75,7 @@ servicios.forEach(doc => {
 
         `;
 
-    });
+    }
 
 }
 
@@ -181,3 +191,32 @@ async function cargarEstadisticasWeb(){
 }
 
 cargarEstadisticasWeb();
+window.verServicio = function(nombre, descripcion, precio, imagen) {
+
+    document.getElementById("modalTitulo").textContent = nombre;
+
+    document.getElementById("modalDescripcion").textContent = descripcion;
+
+    document.getElementById("modalPrecio").textContent = "S/ " + precio;
+
+    const img = document.getElementById("modalImagen");
+
+    if (imagen && imagen.trim() !== "") {
+
+        img.src = imagen;
+        img.style.display = "block";
+
+    } else {
+
+        img.src = "assets/img/servicio-default.jpg";
+        img.style.display = "block";
+
+    }
+
+    const modal = new bootstrap.Modal(
+        document.getElementById("modalServicio")
+    );
+
+    modal.show();
+
+}

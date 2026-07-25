@@ -369,3 +369,61 @@ RESPONSIVE
 }
 
 }
+/*=========================
+  SERVICIOS ADMIN
+==========================*/
+
+.servicio-admin{
+    height:100%;
+    border:1px solid rgba(25,135,84,.35);
+    border-radius:18px;
+    transition:.30s;
+}
+
+.servicio-admin:hover{
+    border-color:#198754;
+    transform:translateY(-4px);
+    box-shadow:0 15px 35px rgba(25,135,84,.18);
+}
+
+.titulo-servicio{
+    font-family:'Poppins',sans-serif;
+    font-size:22px;
+    font-weight:700;
+    color:#22c55e;
+    margin-bottom:20px;
+}
+
+.servicio-admin label{
+    font-size:14px;
+    font-weight:600;
+    color:#d1d5db;
+}
+
+.servicio-admin textarea{
+    resize:none;
+    min-height:95px;
+}
+
+.servicio-admin input,
+.servicio-admin textarea{
+    border-radius:10px;
+}
+
+.servicio-admin .btn{
+    margin-top:10px;
+    border-radius:10px;
+    font-weight:600;
+}
+
+@media (max-width:768px){
+
+    .titulo-servicio{
+        font-size:20px;
+    }
+
+    .servicio-admin{
+        margin-bottom:20px;
+    }
+
+}

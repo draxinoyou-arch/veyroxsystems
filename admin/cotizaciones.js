@@ -3,178 +3,12 @@ import { db } from "../firebase.js";
 import {
     collection,
     getDocs,
-    getDoc,
-    addDoc,
-    updateDoc,
     deleteDoc,
-    doc,
-    serverTimestamp
+    updateDoc,
+    doc
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
-// =====================================
-// VARIABLES
-// =====================================
-
 const tabla = document.getElementById("tablaCotizaciones");
-
-const cliente = document.getElementById("cotizacionCliente");
-const servicio = document.getElementById("cotizacionServicio");
-const total = document.getElementById("cotizacionTotal");
-const estado = document.getElementById("cotizacionEstado");
-
-const btnNueva = document.getElementById("nuevaCotizacion");
-const btnGuardar = document.getElementById("guardarCotizacion");
-
-const modal = new bootstrap.Modal(
-    document.getElementById("modalCotizacion")
-);
-
-let editando = null;
-
-// =====================================
-// ABRIR MODAL
-// =====================================
-
-btnNueva.addEventListener("click", async () => {
-
-    editando = null;
-
-    cliente.innerHTML =
-        '<option value="">Seleccione un cliente</option>';
-
-    servicio.innerHTML =
-        '<option value="">Seleccione un servicio</option>';
-
-    total.value = "";
-    estado.value = "Pendiente";
-
-    await cargarClientes();
-    await cargarServicios();
-
-    modal.show();
-
-});
-// =====================================
-// CARGAR CLIENTES
-// =====================================
-
-async function cargarClientes() {
-
-    const consulta = await getDocs(collection(db, "clientes"));
-
-    consulta.forEach((documento) => {
-
-        const datos = documento.data();
-
-        cliente.innerHTML += `
-            <option value="${documento.id}">
-                ${datos.nombre}
-            </option>
-        `;
-
-    });
-
-}
-
-// =====================================
-// CARGAR SERVICIOS
-// =====================================
-
-async function cargarServicios() {
-
-    const consulta = await getDocs(collection(db, "servicios"));
-
-    consulta.forEach((documento) => {
-
-        const datos = documento.data();
-
-        servicio.innerHTML += `
-            <option
-                value="${documento.id}"
-                data-precio="${datos.precio}">
-                ${datos.nombre}
-            </option>
-        `;
-
-    });
-
-}
-
-// =====================================
-// CALCULAR TOTAL
-// =====================================
-
-servicio.addEventListener("change", () => {
-
-    const opcion = servicio.options[servicio.selectedIndex];
-
-    if (!opcion) return;
-
-    total.value = opcion.dataset.precio || "";
-
-});
-// =====================================
-// GUARDAR COTIZACIÓN
-// =====================================
-
-btnGuardar.addEventListener("click", guardarCotizacion);
-
-async function guardarCotizacion() {
-
-    if (!cliente.value || !servicio.value) {
-        alert("Seleccione un cliente y un servicio.");
-        return;
-    }
-
-    const opcion = servicio.options[servicio.selectedIndex];
-
-    const datos = {
-        cliente: cliente.value,
-        servicio: servicio.value,
-        total: Number(opcion.dataset.precio),
-        estado: estado.value,
-        fecha: serverTimestamp()
-    };
-
-    try {
-
-        if (editando) {
-
-            await updateDoc(
-                doc(db, "cotizaciones", editando),
-                datos
-            );
-
-            alert("Cotización actualizada.");
-
-        } else {
-
-            await addDoc(
-                collection(db, "cotizaciones"),
-                datos
-            );
-
-            alert("Cotización registrada.");
-
-        }
-
-        modal.hide();
-
-        editando = null;
-
-        await cargarCotizaciones();
-
-    } catch (error) {
-
-        console.error(error);
-        alert("Error al guardar la cotización.");
-
-    }
-
-}
-// =====================================
-// LISTAR COTIZACIONES
-// =====================================
 
 async function cargarCotizaciones() {
 
@@ -186,7 +20,7 @@ async function cargarCotizaciones() {
 
         tabla.innerHTML = `
         <tr>
-            <td colspan="6" class="text-center">
+            <td colspan="7" class="text-center">
                 No hay cotizaciones registradas.
             </td>
         </tr>`;
@@ -194,34 +28,9 @@ async function cargarCotizaciones() {
         return;
     }
 
-    let numero = 1;
-
-    for (const documento of consulta.docs) {
+    consulta.forEach((documento) => {
 
         const datos = documento.data();
-
-        let nombreCliente = "-";
-        let nombreServicio = "-";
-
-        try {
-
-            const cli = await getDoc(doc(db, "clientes", datos.cliente));
-
-            if (cli.exists()) {
-                nombreCliente = cli.data().nombre;
-            }
-
-        } catch {}
-
-        try {
-
-            const ser = await getDoc(doc(db, "servicios", datos.servicio));
-
-            if (ser.exists()) {
-                nombreServicio = ser.data().nombre;
-            }
-
-        } catch {}
 
         let fecha = "";
 
@@ -232,94 +41,104 @@ async function cargarCotizaciones() {
         tabla.innerHTML += `
         <tr>
 
-            <td>${numero++}</td>
+            <td>${datos.nombre ?? "-"}</td>
 
-            <td>${nombreCliente}</td>
+            <td>${datos.whatsapp ?? "-"}</td>
 
-            <td>${nombreServicio}</td>
+            <td>${datos.correo ?? "-"}</td>
 
-            <td>S/ ${Number(datos.total).toFixed(2)}</td>
+            <td>${datos.servicio ?? "-"}</td>
 
-            <td>${datos.estado}</td>
+<td>
+
+    <button
+        class="btn btn-info btn-sm"
+        onclick="verProyecto(\`${datos.proyecto ?? ""}\`)">
+
+        <i class="fa-solid fa-eye"></i>
+        Ver
+
+    </button>
+
+</td>
+
+<td>
+
+    <span class="badge bg-${datos.estado === "Pendiente" ? "warning" : "success"}">
+
+        ${datos.estado}
+
+    </span>
+
+</td>
 
             <td>${fecha}</td>
 
             <td>
 
-                <button
-                    class="btn btn-warning btn-sm"
-                    onclick="editarCotizacion('${documento.id}')">
+                <a
+                    href="https://wa.me/51${datos.whatsapp}"
+                    target="_blank"
+                    class="btn btn-success btn-sm">
 
-                    Editar
+                    <i class="fa-brands fa-whatsapp"></i>
+
+                </a>
+
+                <button
+                    class="btn btn-primary btn-sm ms-1"
+                    onclick="atenderCotizacion('${documento.id}')">
+
+                    Atendida
 
                 </button>
 
                 <button
-                    class="btn btn-danger btn-sm ms-2"
+                    class="btn btn-danger btn-sm ms-1"
                     onclick="eliminarCotizacion('${documento.id}')">
 
-                    Eliminar
+                    <i class="fa-solid fa-trash"></i>
 
                 </button>
 
             </td>
 
         </tr>`;
-
-    }
+    });
 
 }
 
-// =====================================
-// EDITAR
-// =====================================
+window.atenderCotizacion = async function(id){
 
-window.editarCotizacion = async function(id){
+    await updateDoc(doc(db,"cotizaciones",id),{
 
-    editando = id;
+        estado:"Atendida"
 
-    const referencia = doc(db, "cotizaciones", id);
+    });
 
-    const documento = await getDoc(referencia);
+    cargarCotizaciones();
 
-    if(!documento.exists()) return;
-
-    const datos = documento.data();
-
-    await cargarClientes();
-    await cargarServicios();
-
-    cliente.value = datos.cliente;
-    servicio.value = datos.servicio;
-    total.value = datos.total;
-    estado.value = datos.estado;
-
-    modal.show();
-
-};
-
-// =====================================
-// ELIMINAR
-// =====================================
+}
 
 window.eliminarCotizacion = async function(id){
 
     if(!confirm("¿Eliminar esta cotización?")) return;
 
-    await deleteDoc(doc(db, "cotizaciones", id));
-
-    await cargarCotizaciones();
-
-};
-
-// =====================================
-// INICIAR
-// =====================================
-
-document.addEventListener("DOMContentLoaded", () => {
+    await deleteDoc(doc(db,"cotizaciones",id));
 
     cargarCotizaciones();
 
-});
+}
+window.verProyecto = function(proyecto){
 
-console.log("Cotizaciones cargadas correctamente.");
+    document.getElementById("textoProyecto").textContent = proyecto;
+
+    const modal = new bootstrap.Modal(
+        document.getElementById("modalProyecto")
+    );
+
+    modal.show();
+
+}
+
+document.addEventListener("DOMContentLoaded", cargarCotizaciones);
