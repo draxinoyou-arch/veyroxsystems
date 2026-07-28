@@ -126,6 +126,13 @@ secciones[nombre].classList.remove("d-none");
 
 }
 
+/* Cerrar menú en celular */
+if(window.innerWidth <= 768){
+
+    sidebar.classList.remove("show");
+
+}
+
 };
 
 });
