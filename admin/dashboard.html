@@ -43,15 +43,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
                 Dashboard
 
-            </li>
-
-            <li data-section="clientes">
-
-                <i class="fa-solid fa-users"></i>
-
-                Clientes
-
-            </li>
+            
 
             <li data-section="cotizaciones">
 
@@ -69,22 +61,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
             </li>
 
-            <li data-section="portafolio">
-
-                <i class="fa-solid fa-image"></i>
-
-                Portafolio
-
-            </li>
-
-            <li data-section="mensajes">
-
-                <i class="fa-solid fa-envelope"></i>
-
-                Mensajes
-
-            </li>
-
+                
             <li data-section="configuracion">
 
                 <i class="fa-solid fa-gear"></i>
@@ -263,20 +240,15 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
         </section>
 
-        <!-- ========================= -->
-        <!-- CLIENTES -->
-        <!-- ========================= -->
 
-        <section id="clientesSection" class="d-none">
+        <!-- ========================= -->
+        <!-- COTIZACIONES -->
+        <!-- ========================= -->
+         <section id="cotizacionesSection" class="d-none">
 
     <div class="d-flex justify-content-between align-items-center mb-4">
 
-        <h2>Clientes</h2>
-
-        <button class="btn btn-success" id="nuevoCliente">
-            <i class="fa-solid fa-user-plus"></i>
-            Nuevo Cliente
-        </button>
+        <h2>Cotizaciones</h2>
 
     </div>
 
@@ -284,29 +256,33 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
         <div class="table-responsive">
 
-            <table class="table table-dark table-hover">
+            <table class="table table-dark table-hover align-middle">
 
                 <thead>
 
                     <tr>
+
+                        <th>Estado</th>
                         <th>Nombre</th>
-<th>WhatsApp</th>
-<th>Correo</th>
-<th>Servicio</th>
-<th>Proyecto</th>
-<th>Estado</th>
-<th>Fecha</th>
-<th>Acciones</th>
+                        <th>Servicio</th>
+                        <th>WhatsApp</th>
+                        <th>Fecha</th>
+                        <th>Acciones</th>
+
                     </tr>
 
                 </thead>
 
-                <tbody id="tablaClientes">
+                <tbody id="tablaCotizaciones">
 
                     <tr>
+
                         <td colspan="6" class="text-center">
-                            Cargando...
+
+                            Cargando cotizaciones...
+
                         </td>
+
                     </tr>
 
                 </tbody>
@@ -319,25 +295,56 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
 </section>
 
+
         <!-- ========================= -->
-        <!-- COTIZACIONES -->
+        <!-- SERVICIOS -->
         <!-- ========================= -->
-         <section id="cotizacionesSection" class="d-none">
+
+        <section id="serviciosSection" class="d-none">
 
     <div class="d-flex justify-content-between align-items-center mb-4">
 
-        <h2>Cotizaciones</h2>
+        <h2>Servicios</h2>
 
         
-            <i class="fa-solid fa-file-invoice-dollar"></i>
-            Nueva Cotización
-        </button>
 
     </div>
 
-    <div class="row g-4" id="contenedorServicios">
+    <div class="card-box">
 
-    <!-- Desarrollo Web -->
+        <div class="table-responsive">
+
+            <table class="table table-dark table-hover align-middle">
+
+                <thead>
+
+                    <tr>
+                        <th>Imagen</th>
+                        <th>Servicio</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="tablaServicios2">
+
+                    <tr>
+                        <td colspan="4" class="text-center">
+                            Cargando servicios...
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+    <div class="row g-4 mt-2">
+
+        <!-- Desarrollo Web -->
 <div class="col-lg-6">
 
     <div class="card-box servicio-admin">
@@ -348,28 +355,41 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
         <div class="mb-3">
             <label class="form-label">Imagen</label>
-            <input type="file" class="form-control" id="imgDesarrollo" accept="image/*">
+            <input
+                type="file"
+                class="form-control"
+                id="imgDesarrollo"
+                accept="image/*">
         </div>
 
         <div class="mb-3">
             <label class="form-label">Descripción</label>
-            <textarea class="form-control" id="descDesarrollo" rows="3"></textarea>
+            <textarea
+                class="form-control"
+                id="descDesarrollo"
+                rows="3"></textarea>
         </div>
 
         <div class="mb-3">
             <label class="form-label">Precio</label>
-            <input type="number" class="form-control" id="precioDesarrollo">
+            <input
+                type="number"
+                class="form-control"
+                id="precioDesarrollo">
         </div>
 
-        <button class="btn btn-success w-100" id="guardarDesarrollo">
+        <button
+            class="btn btn-success w-100"
+            id="guardarDesarrollo">
+
             Guardar cambios
+
         </button>
 
     </div>
 
 </div>
-
-<!-- Tienda Virtual -->
+    <!-- Tienda Virtual -->
 <div class="col-lg-6">
 
     <div class="card-box servicio-admin">
@@ -469,132 +489,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
 </section>
 
-
-        <!-- ========================= -->
-        <!-- SERVICIOS -->
-        <!-- ========================= -->
-
-        <section id="serviciosSection" class="d-none">
-
-    <div class="d-flex justify-content-between align-items-center mb-4">
-
-        <h2>Servicios</h2>
-
-        
-
-    </div>
-
-    <div class="card-box">
-
-        <div class="table-responsive">
-
-            <table class="table table-dark table-hover align-middle">
-
-                <thead>
-
-                    <tr>
-                        <th>Imagen</th>
-                        <th>Servicio</th>
-                        <th>Precio</th>
-                        <th>Acciones</th>
-                    </tr>
-
-                </thead>
-
-                <tbody id="tablaServicios2">
-
-                    <tr>
-                        <td colspan="4" class="text-center">
-                            Cargando servicios...
-                        </td>
-                    </tr>
-
-                </tbody>
-
-            </table>
-
-        </div>
-
-    </div>
-
-</section>
-
-        <!-- ========================= -->
-        <!-- PORTAFOLIO -->
-        <!-- ========================= -->
-
-        <section id="portafolioSection" class="d-none">
-
-    <div class="d-flex justify-content-between align-items-center mb-4">
-
-        <h2>Portafolio</h2>
-
-        <button class="btn btn-success" id="nuevoProyecto">
-
-            <i class="fa-solid fa-plus"></i>
-
-            Nuevo Proyecto
-
-        </button>
-
-    </div>
-
-    <div class="card-box">
-
-        <div class="table-responsive">
-
-            <table class="table table-dark table-hover align-middle">
-
-                <thead>
-
-                    <tr>
-
-                        <th>Imagen</th>
-                        <th>Proyecto</th>
-                        <th>Categoría</th>
-                        <th>Acciones</th>
-
-                    </tr>
-
-                </thead>
-
-                <tbody id="tablaPortafolio">
-
-                    <tr>
-
-                        <td colspan="4" class="text-center">
-
-                            No hay proyectos registrados.
-
-                        </td>
-
-                    </tr>
-
-                </tbody>
-
-            </table>
-
-        </div>
-
-    </div>
-
-</section>
-
-        <!-- ========================= -->
-        <!-- MENSAJES -->
-        <!-- ========================= -->
-
-        <section id="mensajesSection" class="d-none">
-
-            <h2>Mensajes</h2>
-
-            <div class="card-box mt-4">
-
-                <p>Aquí aparecerán los mensajes enviados desde la web.</p>
-
-            </div>
-
-        </section>
 
         <!-- ========================= -->
         <!-- CONFIGURACIÓN -->

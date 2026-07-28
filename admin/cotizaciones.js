@@ -77,13 +77,28 @@ async function cargarCotizaciones() {
             <td>
 
                 <a
-                    href="https://wa.me/51${datos.whatsapp}"
-                    target="_blank"
-                    class="btn btn-success btn-sm">
+href="https://wa.me/51${datos.whatsapp}?text=${encodeURIComponent(
+`Hola ${datos.nombre} 👋
 
-                    <i class="fa-brands fa-whatsapp"></i>
+Soy de VEYROX Systems.
 
-                </a>
+Hemos recibido tu solicitud de cotización para:
+
+${datos.servicio}
+
+En unos momentos te ayudaremos con toda la información.
+
+Muchas gracias por contactarnos.`)}"
+
+target="_blank"
+
+class="btn btn-success btn-sm"
+
+title="Responder por WhatsApp">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+</a>
 
                 <button
                     class="btn btn-primary btn-sm ms-1"

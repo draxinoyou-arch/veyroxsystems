@@ -1,19 +1,38 @@
-import {
-    db,
-    storage
-} from "../firebase.js";
+import { db } from "../firebase.js";
 
 import {
     doc,
     getDoc,
     setDoc
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+const CLOUD_NAME = "fhkugeoo";
+const UPLOAD_PRESET = "veyrox";
 
-import {
-    ref,
-    uploadBytes,
-    getDownloadURL
-} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
+async function subirImagen(inputId){
+
+    const archivo = document.getElementById(inputId).files[0];
+
+    if(!archivo) return "";
+
+    const datos = new FormData();
+
+    datos.append("file", archivo);
+    datos.append("upload_preset", UPLOAD_PRESET);
+
+    const respuesta = await fetch(
+        `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
+        {
+            method:"POST",
+            body:datos
+        }
+    );
+
+    const resultado = await respuesta.json();
+
+    return resultado.secure_url || "";
+
+}
+
 
 const servicios = [
 
@@ -78,11 +97,7 @@ async function guardar(servicio){
 
     if(archivo){
 
-        const ruta = ref(storage,"servicios/"+servicio.id);
-
-        await uploadBytes(ruta,archivo);
-
-        imagenURL = await getDownloadURL(ruta);
+        imagenURL = await subirImagen(servicio.imagen);
 
     }else{
 

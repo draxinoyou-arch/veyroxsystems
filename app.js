@@ -36,9 +36,13 @@ async function cargarServicios() {
 
             <div class="card servicio-card bg-dark h-100 shadow">
 
-                <div class="servicio-icono">
-                    <i class="fas fa-code"></i>
-                </div>
+               <div class="servicio-banner">
+
+    <img
+        src="${servicio.imagen && servicio.imagen.trim() !== "" ? servicio.imagen : "assets/img/servicio-default.jpg"}"
+        alt="${servicio.nombre}">
+
+</div>
 
                 <div class="card-body d-flex flex-column">
 
@@ -185,8 +189,8 @@ async function cargarEstadisticasWeb(){
     const servicios = await getDocs(collection(db,"servicios"));
     const proyectos = await getDocs(collection(db,"portafolio"));
 
-    animarNumero("statClientes", servicios.size * 5 || 10);
-    animarNumero("statProyectos", proyectos.size);
+    animarNumero("statClientes", 50);
+animarNumero("statProyectos", 20);
 
 }
 
